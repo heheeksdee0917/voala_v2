@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'LOUIS GEORGE CAFE';
+  src: url('/Voala/ProjectSource/fonts/Louis George Cafe.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'LOUIS GEORGE CAFE';
+  src: url('/Voala/ProjectSource/fonts/Louis George Cafe Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'LOUIS GEORGE CAFE';
+  src: url('/Voala/ProjectSource/fonts/Louis George Cafe Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'LOUIS GEORGE CAFE';
+  src: url('/Voala/ProjectSource/fonts/Louis George Cafe Bold Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'LOUIS GEORGE CAFE';
+  src: url('/Voala/ProjectSource/fonts/Louis George Cafe Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'LOUIS GEORGE CAFE';
+  src: url('/Voala/ProjectSource/fonts/Louis George Cafe Light Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: fallback;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --diced-hero-section-top-text: #666666;
+  --diced-hero-section-main-gradient-from: #59514e;
+  --diced-hero-section-main-gradient-to: #4A5568;
+  --diced-hero-section-main-gradient-foreground: #59514e;
+  --diced-hero-section-separator: #59514e;
+  --diced-hero-section-sub-text: #4A5568;
+  --diced-hero-section-button-bg: #59514e;
+  --diced-hero-section-button-fg: #FFFFFF;
+  --diced-hero-section-button-hover-bg: #ede9e1;
+  --diced-hero-section-button-hover-fg: #59514e;
+}
+
+.dark {
+  --diced-hero-section-top-text: #f7f7ff;
+  --diced-hero-section-main-gradient-from: #9F4EFF;
+  --diced-hero-section-main-gradient-to: #00A6FB;
+  --diced-hero-section-main-gradient-foreground: #9F4EFF;
+  --diced-hero-section-separator: #086CA2;
+  --diced-hero-section-sub-text: #f7f7ff;
+  --diced-hero-section-button-bg: #00A6FB;
+  --diced-hero-section-button-fg: #0A0A0A;
+  --diced-hero-section-button-hover-bg: #9F4EFF;
+  --diced-hero-section-button-hover-fg: #FFFFFF;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Image Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUpTrigger {
+  transform: translateY(40px);
+  /* Prevent mobile webkit blinking/flashing */
+  -webkit-transform: translateY(40px);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
+}
+
+.fadeInUpAnimated {
+  animation: fadeInUp 0.8s ease-out forwards;
+  /* Prevent mobile webkit blinking/flashing */
+  -webkit-animation: fadeInUp 0.8s ease-out forwards;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smooth image loading without blinking */
+img {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  transform: translateZ(0);
+}

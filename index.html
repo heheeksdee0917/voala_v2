@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="/Logo/VOALA NEW_WHITE.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Default Meta Tags (will be overridden by react-helmet-async on each page) -->
+  <title>The best interior design in KL. If you're looking for Interior Designer in KL for commercial and residential, Voala Interior will be your best choice</title>
+  <meta name="description" content="Award-winning interior design studio in Kuala Lumpur, Malaysia" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/jpeg" href="/Logo/VOALA NEW_WHITE.png" sizes="any">
+  <link rel="icon" type="image/jpeg" href="/Logo/VOALA NEW_WHITE.png" sizes="32x32">
+
+  <!-- Preload -->
+  <link rel="preload" href="/Voala/ProjectSource/fonts/Louis George Cafe.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/Voala/ProjectSource/fonts/Louis George Cafe Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="/Voala/ProjectSource/Signature-Projects/SkyMeridien/SkyMeridienCoverPhoto.avif" as="image">
+  <link rel="preload" href="/Voala/ProjectSource/Signature-Projects/Foresta/ForestaCoverPhoto.avif" as="image">
+
+  <!-- Critical CSS -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'LOUIS GEORGE CAFE', 'Inter', sans-serif;
+      background-color: #ffffff;
+    }
+
+    .seo-hidden, .sr-only {
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+      white-space: nowrap !important;
+    }
+
+    .hero-loading {
+      height: 100vh;
+      background: linear-gradient(135deg, #59514e 0%, #4A5568 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-loading-text {
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    /* Store Locator */
+    .store-locator-container {
+      margin: 40px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    .store-locator-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    gmpx-store-locator {
+      width: 100%;
+      height: 600px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      --gmpx-color-primary: #59514e;
+      --gmpx-font-family-base: 'LOUIS GEORGE CAFE', 'Roboto', sans-serif;
+      --gmpx-font-family-headings: 'LOUIS GEORGE CAFE', 'Roboto', sans-serif;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #000000;
+      color: white;
+      padding: 64px 0;
+      font-family: 'LOUIS GEORGE CAFE', 'Inter', sans-serif;
+      opacity: 0;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .site-footer.loaded {
+      opacity: 1;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      font-family: 'LOUIS GEORGE CAFE', 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-section h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-section h4 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .footer-section .gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+    .footer-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: white;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-item a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-contact-item a:hover {
+      color: white;
+    }
+
+    .footer-hours {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .footer-hours p {
+      margin: 4px 0;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+
+    .footer-divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 48px;
+      padding-top: 32px;
+      text-align: center;
+    }
+
+    .footer-gradient-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+      margin-bottom: 24px;
+    }
+
+    .footer-copyright {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    .visible-nap {
+      background: #f8f7f5;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
+
+  <!-- Store Locator Configuration -->
+  <script>
+    const CONFIGURATION = {
+      "locations": [
+        {
+          "title": "Voala Interior",
+          "address1": "L2-29 & 30, The Link 2, Jalan Jalil Perkasa 3",
+          "address2": "Bukit Jalil, 57000 Kuala Lumpur, Malaysia",
+          "coords": {"lat": 3.0523409, "lng": 101.6763731},
+          "placeId": "ChIJG5NiadbyomkRF_7uFBLeNo4"
+        }
+      ],
+      "mapOptions": {
+        "center": {"lat": 3.0523409, "lng": 101.6763731},
+        "fullscreenControl": true,
+        "mapTypeControl": false,
+        "streetViewControl": true,
+        "zoom": 15,
+        "zoomControl": true,
+        "maxZoom": 20
+      },
+      "capabilities": {
+        "input": false,
+        "autocomplete": false,
+        "directions": true,
+        "distanceMatrix": false,
+        "details": true,
+        "actions": false
+      }
+    };
+  </script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusines",
+      "name": "Voala Interior",
+      "image": "https://voalainterior.com/Voala/ProjectSource/Logo/VOALA%20NEW_BLACK.png",
+      "@id": "https://voalainterior.com",
+      "url": "https://voalainterior.com",
+      "telephone": "+60125053395",
+      "priceRange": "$$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "L2-29 & 30, The Link, 2, Jalan Jalil Perkasa 3",
+        "addressLocality": "Bukit Jalil",
+        "postalCode": "57000",
+        "addressRegion": "Kuala Lumpur",
+        "addressCountry": "MY"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 3.052340896923446,
+        "longitude": 101.67637307497074
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "Kuala Lumpur, Klang Valley, Bukit Jalil and surrounding areas"
+      },
+      "sameAs": [
+        "https://www.instagram.com/hellovoala/",
+        "https://www.facebook.com/hellovoala",
+        "https://www.youtube.com/@hellovoala9163"
+      ]
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root">
+    <noscript>
+      <div style="padding: 40px; text-align: center; max-width: 900px; margin: 0 auto; background: #f8f7f5; color: #333;">
+        <h1>Voala Interior – Award-Winning Interior Design Studio in KL</h1>
+        <p>Malaysia's heart-led interior design & build experts with 15+ years of experience.</p>
+        <p><strong>Address:</strong> L2-29 & 30, The Link 2, Jalan Jalil Perkasa 3, Bukit Jalil, 57000 Kuala Lumpur, Malaysia</p>
+        <p><strong>Phone:</strong> +60125053395</p>
+      </div>
+    </noscript>
+
+    <div id="static-hero" style="padding: 60px 20px; text-align: center; background: #f8f7f5; color: #333;">
+      <h1>Best Interior Designer in KL</h1>
+      <p class="lead">Award-winning interior design & build studio in Kuala Lumpur</p>
+      <p>15+ years • Residential • Commercial • One-stop service • Heart-led design</p>
+
+      <div style="margin: 30px 0;">
+        <strong>Signature Projects:</strong><br>
+        The BEAR HOUSE – Award Winning Residential Project<br>
+        The EDGE – Award Winning Residential Project<br>
+        The PINKGROUND - Award Winning Commercial Project
+      </div>
+
+      <div class="visible-nap">
+        <strong>Address:</strong> <a href="https://maps.app.goo.gl/Ui4rmpjyS1fUhudt9">L2-29 & 30, The Link 2, Jalan Jalil Perkasa 3, Bukit Jalil, 57000 Kuala Lumpur, Malaysia</a><br>
+        <strong>Phone:</strong> <a href="tel:+60125053395">+60 12 505 3395</a><br>
+        <strong>Email:</strong> <a href="mailto:askvoala@gmail.com">askvoala@gmail.com</a>
+      </div>
+
+      <div class="store-locator-container">
+        <h2>Visit Our Studio</h2>
+        <gmpx-store-locator></gmpx-store-locator>
+      </div>
+
+      <a href="/contact" style="display: inline-block; padding: 12px 32px; background: #59514e; color: white; text-decoration: none; border-radius: 4px; margin-top: 20px;">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Voala Interior</h3>
+          <p>
+            From 0 to 100, we deliver seamless & <span class="gradient-text">exceptional</span> spaces.
+            As luxury interior design and fit-out specialists, we create bespoke interiors that transform your vision into reality.
+          </p>
+          <div class="footer-stats">
+            <span class="gradient-text">15+ Years Experience</span>
+            <span class="gradient-text">200+ Projects Completed</span>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact Us</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div>
+              <a href="tel:+60125053395">+60 12 505 3395</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <div>
+              <a href="mailto:askvoala@gmail.com">askvoala@gmail.com</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <div>
+              L2-29 & 30, The Link, 2, Jalan Jalil Perkasa 3, Bukit Jalil, 57000 Kuala Lumpur
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Business Hours</h4>
+          <div class="footer-hours">
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <div>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 14px; margin: 0;">
+                  Monday - Friday (By Appointment)<br />10:00 AM - 7:00 PM
+                </p>
+              </div>
+            </div>
+            <div style="color: rgba(255, 255, 255, 0.6); font-size: 14px; margin-top: 8px;">
+              <p style="margin: 4px 0;">Saturday: By Appointment</p>
+              <p style="margin: 4px 0;">Sunday: Closed</p>
+            </div>
+          </div>
+
+          <h4>Follow Us</h4>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/hellovoala/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/hellovoala" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider">
+        <div class="footer-gradient-line"></div>
+        <p class="footer-copyright">
+          © 2025 Voala Interior. All rights reserved. | Designs You'll Love. Heartwork You'll Feel
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SEO H2 Tags -->
+  <h2 class="sr-only">Interior design consultation</h2>
+  <h2 class="sr-only">Residential interior design</h2>
+  <h2 class="sr-only">Commercial interior design</h2>
+  <h2 class="sr-only">Kitchen Design</h2>
+  <h2 class="sr-only">Bathroom Design</h2>
+  <h2 class="sr-only">Lighting Design</h2>
+  <h2 class="sr-only">Bedroom design</h2>
+  <h2 class="sr-only">Living Room Design</h2>
+
+  <!-- Google Maps Store Locator -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"></script>
+  
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', async () => {
+      await customElements.whenDefined('gmpx-store-locator');
+      const locator = document.querySelector('gmpx-store-locator');
+      if (locator) {
+        locator.configureFromQuickBuilder(CONFIGURATION);
+      }
+    });
+
+    window.addEventListener('load', function() {
+      const footer = document.querySelector('.site-footer');
+      if (footer) {
+        footer.classList.add('loaded');
+      }
+    });
+  </script>
+
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

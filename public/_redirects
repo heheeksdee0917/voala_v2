@@ -1,0 +1,7 @@
+/*    /index.html   200
+
+# Redirect HTTP to HTTPS (all versions)
+http://* https://voalainterior.com/:splat 301!
+
+# Redirect www to non-www (HTTPS)
+https://www.voalainterior.com/* https://voalainterior.com/:splat 301!
